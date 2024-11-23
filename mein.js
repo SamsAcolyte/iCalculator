@@ -16,7 +16,7 @@ buttons.forEach(button => {
         const value = event.target.value;
         
         // Append numbers and decimals to the currentNumber
-        if (!isNaN(value) || value === '.') {
+        if ((!isNaN(value) || value === '.') && (screen2.textContent.length < 13)) {
             currentNumber += value;
             screen2.textContent = currentNumber; // Update screen2 with current input
         }

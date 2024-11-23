@@ -10,16 +10,21 @@ header {
 .calculator {
     display: flex;
     flex-direction: column;
-    width: 400px;
-    height: 550px;
-    background-color: aqua;
+    width: 350px;
+    height: 520px;
+    background-color:  #2f3236;
+    border-radius: 12px;
     margin: auto;
+    align-items: center;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ccc;
+    
 }
 
 .screenContainer {
-    background-color: blue;
-    /* flex-grow: 1; */
+
     height: 150px;
+    width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,44 +32,139 @@ header {
    
 }
 
+.screen {
+    width: 300px;
+    height: 100px;
+    background-color: #2f4f4f;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    /* background-color: #fff; */
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0,0.5 );
+}
 .screen1 {
-    background-color: darkgoldenrod;
     width: 300px;
     height: 50px;
+    font-size: larger;
+    border-top: 10%;
+    word-wrap: break-word;
+    animation: flashText 1s infinite;
+
 }
 
 .screen2 {
-    background-color:darkkhaki;
+    
     width: 300px;
     height: 50px;
+    font-size: xx-large;
+    border-bottom-right-radius: 10%; 
+    word-wrap: break-word;
+    animation: flashText 1s infinite;
+    overflow: hidden;
+    
 }
 .cleanContainer {
-    background-color: blueviolet;
-    /* flex-grow: 1; */
-    height: 75px;
+    flex-grow: 1;
+    height: 55px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    width: 70%;
+    padding: 10px 0;
 }
 
 .cleanContainer button {
-    background-color: darkorange;
-    width: 100px;
+    width: 80px;
     height: 40px;
+    border-radius: 30%;
+    font-size: large;
+    background-color: rgb(226, 165, 10);
 }
 .numberContainer {
-   background-color: chartreuse;
    flex-grow: 1;
    display: flex;
-   flex-wrap: wrap;
    align-items: center;
-   gap: 20px;
    justify-content: center;
+}
+.nB {
+    height: 295px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.oB {
+    height: 295px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .numberContainer button {
-    background-color:darkmagenta;
-    width: 75px;
-    height: 40px;
+    font-size: xx-large;
 }
+
+.number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    
+}
+.equals {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgb(168, 37, 20);
+    animation: popEffect 1s infinite ease-in-out;
+}
+.operator {
+    width: 75px;
+    height: 50px;
+    border-radius: 35%;
+}
+button {
+    cursor: pointer;
+}
+
+footer {
+    font-size: xx-small;
+}
+
+@keyframes popEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes flashText {
+    0% {
+        color: crimson;
+    }
+    25% {
+        color: #ff5733; /* Light red */
+    }
+    50% {
+        color: #ffbb33; /* Yellow */
+    }
+    75% {
+        color: #33ff57; /* Green */
+    }
+    100% {
+        color: crimson;
+    }
+}
+
