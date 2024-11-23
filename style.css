@@ -82,7 +82,7 @@ header {
     height: 40px;
     border-radius: 30%;
     font-size: large;
-    background-color: rgb(226, 165, 10);
+   
 }
 .numberContainer {
    flex-grow: 1;
@@ -122,8 +122,8 @@ header {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: rgb(168, 37, 20);
-    animation: popEffect 1s infinite ease-in-out;
+    
+    
 }
 .operator {
     width: 75px;
@@ -138,17 +138,14 @@ footer {
     font-size: xx-small;
 }
 
-@keyframes popEffect {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
+button.active {
+    background-color: #ffa; /* Change background color */
+    transform: scale(0.95); /* Slightly shrink the button */
+    transition: transform 0.1s ease;
 }
+
+
+
 
 @keyframes flashText {
     0% {
