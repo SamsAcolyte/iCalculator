@@ -39,7 +39,40 @@ operators.forEach(operator => {
 });
 
      
-    
+// Handle equals button
+equals.addEventListener('click', () => {
+    if (currentNumber === '' || previousNumber === '' || currentOperator === '') return;
+
+    // Perform the calculation
+    let result;
+    const num1 = parseFloat(previousNumber);
+    const num2 = parseFloat(currentNumber);
+    switch (currentOperator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            result = num2 !== 0 ? num1 / num2 : 'Error'; // Avoid division by zero
+            break;
+        default:
+            return;
+    }
+
+    // Display the result
+    screen1.textContent = `${previousNumber} ${currentOperator} ${currentNumber} =`;
+    screen2.textContent = result;
+    currentNumber = result.toString(); // Allow chaining calculations
+    previousNumber = '';
+    currentOperator = '';
+});
+
+     
    
     
    
