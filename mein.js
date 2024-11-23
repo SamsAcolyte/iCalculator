@@ -22,9 +22,6 @@ buttons.forEach(button => {
         }
     });
 });
-    
-       
-
 
 // Handle operator buttons
 operators.forEach(operator => {
@@ -38,7 +35,6 @@ operators.forEach(operator => {
     });
 });
 
-     
 // Handle equals button
 equals.addEventListener('click', () => {
     if (currentNumber === '' || previousNumber === '' || currentOperator === '') return;
@@ -72,11 +68,17 @@ equals.addEventListener('click', () => {
     currentOperator = '';
 });
 
-     
-   
-    
-   
-    
+// Handle AC button
+ac.addEventListener('click', () => {
+    currentNumber = '';
+    previousNumber = '';
+    currentOperator = '';
+    screen1.textContent = '';
+    screen2.textContent = '';
+});
 
-
-
+// Handle DEL button
+del.addEventListener('click', () => {
+    currentNumber = currentNumber.slice(0, -1); // Remove the last character
+    screen2.textContent = currentNumber;
+});

@@ -23,15 +23,21 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
    
 }
 
-.screen {
+.screen1 {
     background-color: darkgoldenrod;
     width: 300px;
-    height: 100px;
+    height: 50px;
 }
 
+.screen2 {
+    background-color:darkkhaki;
+    width: 300px;
+    height: 50px;
+}
 .cleanContainer {
     background-color: blueviolet;
     /* flex-grow: 1; */
