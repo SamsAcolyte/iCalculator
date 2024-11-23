@@ -16,7 +16,10 @@ buttons.forEach(button => {
         const value = event.target.value;
         
         // Append numbers and decimals to the currentNumber
-        if ((!isNaN(value) || value === '.') && (screen2.textContent.length < 13)) {
+        if ((!isNaN(value) || value === '.') && (screen2.textContent.length < 18)) {
+            if (value === '.' && currentNumber.includes('.')) {
+                return; // Prevent adding another decimal point
+            }
             currentNumber += value;
             screen2.textContent = currentNumber; // Update screen2 with current input
         }
@@ -27,6 +30,7 @@ buttons.forEach(button => {
 operators.forEach(operator => {
     operator.addEventListener('click', (event) => {
         if (currentNumber === '') return; // Ignore if no number is entered yet
+        if (!isNaN(previousNumber) && !isNaN(currentNumber)){ calculate()}
         currentOperator = event.target.value; // Store the operator
         previousNumber = currentNumber; // Store the current number as previous
         currentNumber = ''; // Reset current number
@@ -36,7 +40,9 @@ operators.forEach(operator => {
 });
 
 // Handle equals button
-equals.addEventListener('click', () => {
+equals.addEventListener('click', calculate);
+// Create function calculate
+function calculate () {
     if (currentNumber === '' || previousNumber === '' || currentOperator === '') return;
 
     // Perform the calculation
@@ -54,7 +60,7 @@ equals.addEventListener('click', () => {
             result = num1 * num2;
             break;
         case '/':
-            result = num2 !== 0 ? num1 / num2 : 'Error'; // Avoid division by zero
+            result = num2 !== 0 ? num1 / num2 : 'Nice try!'; // Avoid division by zero
             break;
         default:
             return;
@@ -62,12 +68,12 @@ equals.addEventListener('click', () => {
 
     // Display the result
     screen1.textContent = `${previousNumber} ${currentOperator} ${currentNumber} =`;
+    result = parseFloat(result.toFixed(3))
     screen2.textContent = result;
     currentNumber = result.toString(); // Allow chaining calculations
     previousNumber = '';
     currentOperator = '';
-});
-
+}
 // Handle AC button
 ac.addEventListener('click', () => {
     currentNumber = '';
